@@ -1,5 +1,6 @@
 import SwiftUI
 import shared
+import SDWebImageSwiftUI
 
 struct ContentView: View {
 	let greet = Greeting().greet()

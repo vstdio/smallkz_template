@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    kotlin("native.cocoapods") version "1.9.23"
 }
 
 kotlin {
@@ -20,6 +21,21 @@ kotlin {
         it.binaries.framework {
             baseName = "shared"
             isStatic = true
+        }
+    }
+
+    cocoapods {
+        summary = "Some description for the Shared Module"
+        homepage = "Link to the Shared Module homepage"
+        version = "1.0"
+        ios.deploymentTarget = "13.0"
+        framework {
+            baseName = "shared"
+            isStatic = true
+        }
+
+        pod("SDWebImageSwiftUI") {
+            extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
 
