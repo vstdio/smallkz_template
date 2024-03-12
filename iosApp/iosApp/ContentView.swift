@@ -3,10 +3,8 @@ import shared
 import SDWebImageSwiftUI
 
 struct ContentView: View {
-	let greet = Greeting().greet()
-
 	var body: some View {
-		Text(greet)
+		ScannerView()
 	}
 }
 
