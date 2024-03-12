@@ -11,7 +11,7 @@ import AVKit
 
 struct ScannerView: View {
 	@State private var isScanning = false
-	@State private var cameraPermission: Permission = .idle
+	@State private var cameraPermission: CameraPermission = .idle
 	
 	@State private var session: AVCaptureSession = .init()
 	@State private var qrOutput: AVCaptureMetadataOutput = .init()
@@ -191,5 +191,5 @@ struct ScannerView: View {
 }
 
 #Preview {
-    ScannerView()
+	ScannerView()
 }

@@ -13,8 +13,9 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		390E5B9B2B9F461800EF32DF /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5B9A2B9F461800EF32DF /* ScannerView.swift */; };
 		390E5B9D2BA03E2500EF32DF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5B9C2BA03E2500EF32DF /* CameraView.swift */; };
-		390E5BA02BA041CB00EF32DF /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5B9F2BA041CB00EF32DF /* Permission.swift */; };
+		390E5BA02BA041CB00EF32DF /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5B9F2BA041CB00EF32DF /* CameraPermission.swift */; };
 		390E5BA22BA04C1700EF32DF /* ScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5BA12BA04C1700EF32DF /* ScannerDelegate.swift */; };
+		390E5BA62BA06E5E00EF32DF /* ScannerIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5BA52BA06E5E00EF32DF /* ScannerIntroView.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +40,9 @@
 		3092FF0AA4440CBA4516AED7 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		390E5B9A2B9F461800EF32DF /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		390E5B9C2BA03E2500EF32DF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		390E5B9F2BA041CB00EF32DF /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		390E5B9F2BA041CB00EF32DF /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		390E5BA12BA04C1700EF32DF /* ScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerDelegate.swift; sourceTree = "<group>"; };
+		390E5BA52BA06E5E00EF32DF /* ScannerIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerIntroView.swift; sourceTree = "<group>"; };
 		5019468AC9BD0D0596787E48 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				390E5B9A2B9F461800EF32DF /* ScannerView.swift */,
 				390E5B9C2BA03E2500EF32DF /* CameraView.swift */,
+				390E5BA52BA06E5E00EF32DF /* ScannerIntroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,10 +91,26 @@
 		390E5B9E2BA041BF00EF32DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				390E5B9F2BA041CB00EF32DF /* Permission.swift */,
+				390E5B9F2BA041CB00EF32DF /* CameraPermission.swift */,
 				390E5BA12BA04C1700EF32DF /* ScannerDelegate.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		390E5BA32BA06D9000EF32DF /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
+		390E5BA42BA06DA500EF32DF /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				390E5B902B9F428600EF32DF /* View */,
+				390E5B9E2BA041BF00EF32DF /* Model */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -115,8 +134,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				390E5B9E2BA041BF00EF32DF /* Model */,
-				390E5B902B9F428600EF32DF /* View */,
+				390E5BA42BA06DA500EF32DF /* Scanner */,
+				390E5BA32BA06D9000EF32DF /* Dialog */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -269,9 +288,10 @@
 			files = (
 				390E5B9B2B9F461800EF32DF /* ScannerView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				390E5BA62BA06E5E00EF32DF /* ScannerIntroView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				390E5B9D2BA03E2500EF32DF /* CameraView.swift in Sources */,
-				390E5BA02BA041CB00EF32DF /* Permission.swift in Sources */,
+				390E5BA02BA041CB00EF32DF /* CameraPermission.swift in Sources */,
 				390E5BA22BA04C1700EF32DF /* ScannerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

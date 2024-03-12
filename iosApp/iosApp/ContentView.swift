@@ -1,10 +1,9 @@
 import SwiftUI
 import shared
-import SDWebImageSwiftUI
 
 struct ContentView: View {
 	var body: some View {
-		ScannerView()
+		ScannerIntroView()
 	}
 }
 
