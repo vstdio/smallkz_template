@@ -16,6 +16,7 @@
 		390E5BA02BA041CB00EF32DF /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5B9F2BA041CB00EF32DF /* CameraPermission.swift */; };
 		390E5BA22BA04C1700EF32DF /* ScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5BA12BA04C1700EF32DF /* ScannerDelegate.swift */; };
 		390E5BA62BA06E5E00EF32DF /* ScannerIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390E5BA52BA06E5E00EF32DF /* ScannerIntroView.swift */; };
+		3963FE052BA1814300DDA9B0 /* DottedLineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3963FE042BA1814300DDA9B0 /* DottedLineShape.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		390E5B9F2BA041CB00EF32DF /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		390E5BA12BA04C1700EF32DF /* ScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerDelegate.swift; sourceTree = "<group>"; };
 		390E5BA52BA06E5E00EF32DF /* ScannerIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerIntroView.swift; sourceTree = "<group>"; };
+		3963FE042BA1814300DDA9B0 /* DottedLineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DottedLineShape.swift; sourceTree = "<group>"; };
 		5019468AC9BD0D0596787E48 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,14 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		3963FE022BA1811B00DDA9B0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3963FE042BA1814300DDA9B0 /* DottedLineShape.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				3963FE022BA1811B00DDA9B0 /* Utility */,
 				390E5BA42BA06DA500EF32DF /* Scanner */,
 				390E5BA32BA06D9000EF32DF /* Dialog */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -291,6 +302,7 @@
 				390E5BA62BA06E5E00EF32DF /* ScannerIntroView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				390E5B9D2BA03E2500EF32DF /* CameraView.swift in Sources */,
+				3963FE052BA1814300DDA9B0 /* DottedLineShape.swift in Sources */,
 				390E5BA02BA041CB00EF32DF /* CameraPermission.swift in Sources */,
 				390E5BA22BA04C1700EF32DF /* ScannerDelegate.swift in Sources */,
 			);

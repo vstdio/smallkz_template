@@ -25,85 +25,63 @@ struct ScannerView: View {
 	@State private var scannedCode: String = ""
 	
 	var body: some View {
-		VStack(spacing: 8) {
-			Button {
-				
-			} label: {
-				Image(systemName: "xmark")
-					.font(.title3)
-					.foregroundStyle(.blue)
+		ZStack {
+			GeometryReader { geometry in
+				CameraView(frameSize: geometry.size,
+						   session: $session)
 			}
-			.frame(maxWidth: .infinity, alignment: .leading)
+			.background(.gray)
+			.ignoresSafeArea()
 			
-			Text("Place the QR code inside the area")
-				.font(.title3)
-				.foregroundStyle(.black.opacity(0.8))
-				.padding(.top, 20)
-			
-			Text("Scanning will start automatically")
-				.font(.callout)
-				.foregroundStyle(.gray)
-			
-			Spacer(minLength: 0)
-			
-			// Camera
-			GeometryReader {
-				let size = $0.size
+			VStack(spacing: 8) {
 				
+				Text("Поместите штрих код в рамку")
+					.font(.title3)
+					.foregroundStyle(.black.opacity(0.8))
+					.padding(.bottom, 30)
+				
+				// Camera Borders
 				ZStack {
-					CameraView(frameSize: CGSize(width: size.width, height: size.width), session: $session)
-						.scaleEffect(0.97)
+					var fractions = [0.64...0.67, 0.33...0.36, 0.14...0.17, 0.83...0.86]
 					ForEach(0..<4, id: \.self) { index in
 						RoundedRectangle(cornerRadius: 2, style: .circular)
-							.trim(from: 0.61, to: 0.64)
-							.stroke(.blue, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
-							.rotationEffect(.degrees(Double(index) * 90))
+							.trim(from: fractions[index].lowerBound, to: fractions[index].upperBound)
+							.stroke(.white, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
 					}
 				}
-				.aspectRatio(1.0, contentMode: .fit)
-				.overlay(alignment: .top, content: {
-					Rectangle()
-						.fill(.blue)
-						.frame(height: 2.5)
-						.shadow(color: .black.opacity(0.8), radius: 8, x: 0, y: isScanning ? 15 : -15)
-						.offset(y: isScanning ? size.width : 0)
-				})
-				.frame(width: size.width, height: size.height)
-			}
-			.padding(.horizontal, 45)
-			
-			Spacer(minLength: 15)
-			
-			Button {
-				if !session.isRunning && cameraPermission == .approved {
-					startSession()
-					startScannerAnimation()
+				.aspectRatio(0.62, contentMode: .fit)
+				.padding(.horizontal, 45)
+				.padding(.bottom, 30)
+				
+				Button {
+					if !session.isRunning && cameraPermission == .approved {
+						startSession()
+						startScannerAnimation()
+					}
+				} label: {
+					Image(systemName: "qrcode.viewfinder")
+						.font(.largeTitle)
+						.foregroundStyle(.white)
 				}
-			} label: {
-				Image(systemName: "qrcode.viewfinder")
-					.font(.largeTitle)
-					.foregroundStyle(.gray)
 			}
-			
-			Spacer(minLength: 45)
-		}
-		.onAppear(perform: checkCameraPermission)
-		.alert(errorMessage, isPresented: $showError) {
-			if cameraPermission == .denied {
-				Button("Settings") {
-					if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-						openURL(settingsURL)
+			.onAppear(perform: checkCameraPermission)
+			.alert(errorMessage, isPresented: $showError) {
+				if cameraPermission == .denied {
+					Button("Settings") {
+						if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+							openURL(settingsURL)
+						}
 					}
 				}
+				Button("Cancel", role: .cancel, action: {})
 			}
-			Button("Cancel", role: .cancel, action: {})
-		}
-		.onChange(of: scannerDelegate.scannedCode) { newValue in
-			if let code = newValue {
-				scannedCode = code
-				session.stopRunning()
-				stopScannerAnimation()
-				scannerDelegate.scannedCode = nil
+			.onChange(of: scannerDelegate.scannedCode) { newValue in
+				if let code = newValue {
+					scannedCode = code
+					session.stopRunning()
+					stopScannerAnimation()
+					scannerDelegate.scannedCode = nil
+				}
 			}
 		}
 	}
